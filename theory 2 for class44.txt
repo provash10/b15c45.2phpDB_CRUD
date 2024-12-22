@@ -1,0 +1,125 @@
+Class @44 (Insert Data in Database using PHP)
+https://www.facebook.com/muntasir.fahim8/videos/1729880811133093/?idorvanity=7295095747278784
+
+Class 43 @ (Data Read Operation Using PHP)
+https://www.facebook.com/muntasir.fahim8/videos/977901214150681/?idorvanity=7295095747278784
+==================================================================================================
+Class 44 >>>>>>>>>>>>>>
+
+link setup in nav bar >>>> 
+Home Page 
+<a class="nav-link active" aria-current="page" href="#">Home</a>
+<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+
+Create Student Page 
+<a class="nav-link" href="#">Link</a>
+<a class="nav-link" href="create.php">Create Student</a>
+
+**** Every Page Have nav bar .........
+**** bootstrap link setup..........
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+--------------
+=============
+create.php>>>>
+
+***** akta student ar jonno akta form create korte hobe jate students ar name, roll, class, phone, address, email etc thakbe.
+//for a Form form bootstrap
+//***** name, id, value attributes depends on data ....
+//****** Form a class dite hobe jodi na thake or manually kora hoi like <textarea> </textarea> tag
+//****** HTTP Method  from>>> Form
+
+1. GET Method >>> kono database theke data tule nia ase  takon GET Method kaj kore.
+2. POST Method  >>> database a kono data insert kora hoi takon POST Method kaj kore.
+                >>> Data Update o kore
+3. PUT Method  >>> Just Data Update
+4. DELETE Method   >>> Remove
+
+*****akon Database a data insert korar jonno Backend a kaj korte hobe
+*****database (config.php) k page (create.php) a connect korte hobe.
+<!-- //Connected this page -->
+<?php
+     include 'config.php';
+?>
+
+
+5. akon Data Insert korar jonno Query likte hobe
+>>> INSERT Data Query--------------------
+"INSERT INTO students (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', 'abx345@gmail.com')";
+
+6. jokon keu form a data dia fill up kore submit korbe takoni INSERT Data Query start hobe and Database a Data Insert hobe.
+
+7. 43 class >>> Query liklei ki database kaj kora suru kore naki ai 
+mysqli_query($connection, $query); function ar maddhome kaj kore.
+>>> mysqli_query($connection, $query); ai function er maddhome kaj kore.
+
+8.
+9. Form theke kono data asle the $_POST (Global Variable receive kore)
+10.
+<?php
+    $name    = $_POST['name'];
+    $email   = $_POST['email'];
+    $phone   = $_POST['phone'];
+    $class   = $_POST['class'];
+    $roll    = $_POST['roll'];
+    $address = $_POST['address'];
+    // "INSERT INTO students (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', abx345@gmail.com)";
+    // $query = "INSERT INTO students (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', abx345@gmail.com)";
+    $query = "INSERT INTO students (name, roll, class, phone, address, email) VALUES ('$name','$roll','$class','$phone','$address','$email')";
+     //  mysqli_query($connection, $query);
+     $insertData = mysqli_query($connection, $query);
+
+?>
+
+11.VALUES ('$name','$roll','$class','$phone','$address','$email');
+
+$query = "INSERT INTO students (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', abx345@gmail.com)";
+$query = "INSERT INTO students (name, roll, class, phone, address, email) VALUES ('$name','$roll','$class','$phone','$address','$email')";
+
+12. undefined array key....... use if ....
+
+13. Form Submit hoar sathe sathe list chart nia jabe....
+// for student kist loaded
+        // if($insertData == true){}
+        if($insertData){
+          header('location:index.php');
+        }
+        else{
+          echo 'Failed to insert data!';
+        }
+
+
+<div class="container"> 
+    <form action="" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name*</label>
+            <input type="text" class="form-control" name="name" id="name" value="" placeholder="Enter Student Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email*</label>
+            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Enter Student Email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone*</label>
+            <input type="text" class="form-control" name="phone" id="phone" value="" placeholder="Enter Student Phone" required>
+        </div>
+        <div class="mb-3">
+            <label for="class" class="form-label">Class*</label>
+            <input type="number" class="form-control" name="class" id="class" value="" placeholder="Enter Student Class" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="roll" class="form-label">Roll*</label>
+            <input type="number" class="form-control" name="roll" id="roll" value="" placeholder="Enter Student Roll" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address*</label>
+            <!-- <input type="number" class="form-control" name="roll" id="roll" value="" placeholder="Enter Student Roll" required> -->
+             <textarea class="form-label" name="address" id="address" value="" placeholder="Enter Student Roll" required> </textarea>
+        </div>
+        
+             <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

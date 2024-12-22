@@ -1,0 +1,112 @@
+Class 41.1 Practice
+=======================
+Database 
+>>>> XAMPP --- a. Apache b. MySQL, - Admin ON >>> Start Ok
+===========================================================
+MySQL Database - localhost/phpmyadmin
+-----------------------------------------
+New>>> Create Database
+Database name >>> school_management_system_2
+Collation next empty option  >>> blank  select
+>>>>> Database Create ok
+
+Now Create Data table like category From school_management_system_2
+1. students
+2. teachers
+3. staffs
+
+
+1. students (data table)>>> (by default id, name, roll, class, phone, address, email)
+Data Table name>>> students_2
+
+Name    -type             -Lenght/Values   - default    -Attributes  -A_I Comment 
+id      -INT                              - None       -unsigned    - Check ok
+name    - string/varchar   -191
+designation    -string/varchar -191
+
+phone   -string/varchar     -191
+address -string/varchar     -191
+email   -string/varchar     -191
+>>>>Save
+
+2. teachers (data table)>>> (by default id, name, designation, phone, address, email)
+Data Table name>>> teachers_2
+
+Name    -type             -Lenght/Values   - default    -Attributes  -A_I Comment 
+id      -INT                              - None       -unsigned    - Check ok
+name    - string/varchar   -191
+designation    -string/varchar -191
+
+phone   -string/varchar     -191
+address -string/varchar     -191
+email   -string/varchar     -191
+>>>>Save
+
+
+3. staffs (data table)>>> (by default id, name, designation, phone, address, email)
+Data Table name>>> staffs_2
+
+Name    -type             -Lenght/Values   - default    -Attributes  -A_I Comment 
+id      -INT                              - None       -unsigned    - Check ok
+name    - string/varchar   -191
+designation    -string/varchar -191
+
+phone   -string/varchar     -191
+address -string/varchar     -191
+email   -string/varchar     -191
+>>>>Save
+================================
+
+*****2 way to upload/store data>>>
+
+a. insert (manually)  b. SQL(write query)
+
+
+a. insert (manually)
+Click students_2 (data table)>>> insert >>>
+
+id  >>> auto
+name >>> Rumel
+roll >>> 1
+class >>> 9
+phone >>> +8801710112233
+address >>> Uttara, Sector-9
+email >>> rumel123@gmail.com
+
+>>>showing >>>
+INSERT INTO `students_2` (`id`, `name`, `roll`, `class`, `phone`, `address`, `email`) VALUES (NULL, 'Md. Rahim ', '1', '10', '+8801710112233', 'Mirpur 1, Dhaka.', 'mdrahim_3@gmail.com');
+
+
+a. insert (manually)
+Click teachers_2 (data table)>>> insert >>>
+
+
+>>>after insert data ...showing >>>
+INSERT INTO `teachers_2` (`id`, `name`, `designation`, `phone`, `address`, `email`) VALUES (NULL, 'Md. kamal uddin', 'Head Teacher', '+55123456', 'Farmgate,Dhaka.', 'mdkamal-55@gmail.com');
+
+a. insert (manually)
+Click staffs_2 (data table)>>> insert >>>
+
+
+>>>after insert data ...showing >>>
+INSERT INTO `staffs_2` (`id`, `name`, `designation`, `phone`, `address`, `email`) VALUES (NULL, 'Karim Mia.', 'Head Clark.', '+33156001', 'Bonshal,Dhaka.', 'karim_mia3@gmail.com');
+
+====================
+ b. SQL(write query)
+ SQL = Structured Query Language
+
+ SQL query
+ 4 types query ****CRUD 
+
+ Data Insert/C or Create Query
+
+ Go To SQL >>>
+INSERT INTO table name  ('null',`name`, `roll`, `class`, `phone`, `address`, `email`) VALUES (NULL, 'Md. Rahim ', 1, 10, '+8801710112233', 'Mirpur 1, Dhaka.', 'mdrahim_3@gmail.com');
+
+INSERT INTO `students_2` (`id`, `name`, `roll`, `class`, `phone`, `address`, `email`) VALUES (NULL, 'Md. Rabbi ', 2, 9, '+8801710112234', 'Mirpur 2, Dhaka.', 'mdrabbi_3@gmail.com');
+
+==========================================
+Class 42.2 Practice
+--------------------
+
+

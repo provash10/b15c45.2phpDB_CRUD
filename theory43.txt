@@ -1,0 +1,553 @@
+Class 43 @ (Data Read Operation Using PHP)
+https://www.facebook.com/muntasir.fahim8/videos/977901214150681/?idorvanity=7295095747278784
+
+#####Download>>>CDN via jsDelivr
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+===================================================
+Firstly, Project ar sathe database connect korate hobe
+
+*****Database connected with PHP/php project by like a function/Class bola jete pare
+function name ===>>> mysqli   
+===>>>>()>>>> Parameter
+
+======Configure Database=====
+
+mysqli('')
+1st parameter >>> 'hostname' >>> local server name
+2nd parameter >>> 'user_name' >>>
+3rd parameter >>> 'password' >>>
+4th parameter  >>> 'database_name' >>>
+
+mysqli('hostname', 'user_name','password', 'database_name');
+
+mysqli('hostname', 'user_name',"password", 'database_name');
+
+==========================================================
+***** Every Page ar jonno database connect korte hobe >>>
+bar bar connect na kore akbarei connect korar jonno alada akta 
+file create kore rakbo. jar name >>>> config.php
+Query***
+mysqli('hostname', 'user_name', 'password', 'database_name'); 
+
+config.php file>>>
+
+*****ai file a database connect korte hobe
+============
+<?php
+// mysqli('hostname', 'user_name','password', 'database_name'); 
+// $connection = new mysqli('hostname', 'user_name','password', 'database_name'); 
+
+$connection = new mysqli('localhost', 'root', '', 'school_management_system_1');
+
+//now check the database connection >>> 
+//For checking ... No need
+
+if($connection == true){
+    echo "Successfully Connected Done !!!";
+}
+else{
+    echo "Connection Failed";
+}
+?>
+=============================================
+
+***** new dia class ar object create korte hoi...
+Database er sathe jodi connect korate chai tahole mysqli ar function ti 
+lagbe>>>
+>>>  mysqli('localhost', 'root', '', 'school_management_system_1');
+
+............
+functiontestName(){
+    $x = 10;
+    $y = 40;
+     $result = $x+$y;
+     echo $result;
+     return $result;
+}
+
+testName();
+
+$finalValue = testName();
+
+Like as >>>
+<?php
+mysqli("hostname", "user_name","password", "database_name");
+new mysqli("hostname", "user_name","password", "database_name");
+
+//variable
+$connection = new mysqli("hostname", "user_name","password", "database_name");
+$connection = new mysqli("localhost", "root","", "school_management_system_1");
+
+//now check the database connection >>> 
+if($connection == true){
+    echo "Successfully Connected";
+}
+else{
+    echo "connection Failed";
+}
+
+?>
+
+now check the database connection of output  >>> google browser by config.php
+http://localhost/B15/Class43/config.php
+
+
+*****config.php file all page like( index.php, create.php) a setup korte hobe <?php ----?> dia
+akta page ar sathe r akta page connect korar jonno php te ****include****  name a akti keyword ase.
+
+law: for all page like( index.php, create.php)
+<?php
+     include 'config.php';
+?>
+
+
+====ok================config.php ok===================ok=====================ok
+
+index.php design 31 minutes >>>>>>>>>>>> create design table >>>
+
+
+===========Data Queries========
+        38 min
+
+*** Table body te table row nia kaj korte hobe -------
+**** Table body te data query likte hobe data read korar jonno.
+**** html a php blog 
+**** query : SELECT * FROM students;  
+**** let it is a data not query, so it is  string hobe, string hole quotation dite hobe.
+      like as 'SELECT * FROM students';
+
+<tbody>
+       <?php
+            'SELECT * FROM students';
+         ?>
+
+
+       <tr>
+           <th> </th>
+       </tr>
+</tbody>
+
+***** Kono Query database a setup/ chalate chaile akti function ase seti
+>>> Query likte hobe database ar php theke
+
+*****function ti 2ti parameter nite pare
+
+***** function name 
+       >>>>mysqli_query('');
+
+       >>>> mysqli_query('connection', 'query');
+
+       akhane 'connection' means config.php ar >>> $connection = new mysqli('localhost', 'root', '', 'school_management_system_1');
+    And akhane  'query'    means >>>  SQL data >>>  SELECT * FROM students;
+    ***** variable hisebe a raka hoyese*****
+
+    //variable 
+
+    >>>> mysqli_query($connection, $query);
+
+    And 
+    >>>> 
+        <tbody>
+       <?php
+            //variable
+            $query = 'SELECT * FROM students';
+         ?>
+
+
+       <tr>
+           <th> </th>
+       </tr>
+</tbody>
+
+now use  the function in <tbody> under $query variable ...ok 
+          ***** mysqli_query($connection, $query);
+
+             <tbody>
+       <?php
+            'SELECT * FROM students';
+
+            //variable
+            $query = 'SELECT * FROM students';
+
+            mysqli_query($connection, $query);
+            //data dorar jonno variable again dhorte hobe
+             //variable
+
+            $students = mysqli_query($connection, $query);
+
+            //check for test
+
+            echo $students; 
+
+         ?>
+
+
+       <tr>
+           <th> </th>
+       </tr>
+</tbody>
+
+
+-------------------------
+Data read korte parse na fatal error >>> now $students array te convert korte hobe
+and loop use korbo 
+***** php ar jonno while loop best
+
+variable $students a data passe kina check **** Data pele while loop use korbo
+
+if($students){
+    //while (mysqli_fetch_assoc($students))
+    //variable
+    while ($row = mysqli_fetch_assoc($students)){
+    //$row['id']; 
+    //$row['name']; 
+    //$row['roll']; 
+    //$row['class']; 
+    //$row['phone']; 
+    //$row['address']; 
+    //$row['email']; 
+
+    //browser a dekte chaile echo korte hobe
+    echo $row['id']; 
+    echo $row['name']; 
+    echo $row['roll']; 
+    echo $row['class']; 
+    echo $row['phone']; 
+    echo $row['address']; 
+    echo $row['email']; 
+
+    //all data showning this system 
+    //echo $row['id'].$row['name'].$row['roll'].$row['class'].$row['phone'].$row['address'].$row['email'];
+    }
+     //While loop ar data gulo k variable kore nite hobe table a show koranor jonno.
+
+     while ($row = mysqli_fetch_assoc($students)){
+    $id   = $row['id']; 
+    $name = $row['name']; 
+    $roll = $row['roll']; 
+    $class = $row['class']; 
+    $phone = $row['phone']; 
+    $address = $row['address']; 
+    $email =$row['email']; 
+
+    //****table row k <tr> </tr>  loop ar vitore nia aste hobe loop working ar jonno.
+    //html ar code <tr> </tr> php ar vitore ana hoyese tai <tr> </tr>  ar samne echo use korte hobe.
+    //html php ar vitore string hisebe use hoi tai quotation hobe like as
+    //echo '<tr> </tr>' hobe.
+
+    //php ar code html echo <tr> </tr> a use korte chaile concatenition korte hobe
+    //(html) string ar sathe (php)variable concatenition korte hobe 
+            echo  
+              '<tr>
+              <th scope="row">1</th>
+              <td>David</td>
+              <td>1</td>
+              <td>10</td>
+              <td>01710123456</td>
+              <td>New York, USA</td>
+              <td>daviddata@gmail.com</td>
+              <td>
+              <a href="#" class="btn btn-primary"> Edit</a>
+              <a href="#" class="btn btn-danger"> Delete</a>
+              </td>
+              </tr>';
+
+            //php ar code html echo <tr> </tr> a use korte chaile concatenition korte hobe
+            //(html) string ar sathe (php)variable concatenition korte hobe 
+            
+            echo  
+              '<tr>
+                   <th scope="row">'.$id.'</th>
+                   <td>'.$name.'</td>
+                   <td>'.$class.'</td>
+                   <td>'.$roll.'</td>
+                   <td>'.$phone.'</td>
+                   <td>'.$address.'</td>
+                   <td>'.$email.'</td>
+                  <td>
+                      <a href="#" class="btn btn-primary"> Edit</a>
+                      <a href="#" class="btn btn-danger"> Delete</a>
+                  </td>
+              </tr>';
+    }
+};
+***** akta kore echo dorle bojha jasse je data passe ***id or ***name dia
+*** echo for debugging 
+*** echo / print same time...
+**** if ar (){} and while ar (){} hobe.
+if(){
+    while(){
+
+    }
+}
+
+
+
+
+======================================================
+///////////////////////////////////////////////////////
+//use it >>> 
+mysqli_query($connection,$query);
+
+mysqli_query("new mysqli("localhost", "root","", "school_management_system_1")","SELECT * FROM students");
+
+-----
+while loop 
+$i = 0;
+while(condition){
+    //statement;
+    $i++
+}
+
+js
+let associativeArray = { "name": "rahim", "roll": 12};
+associativeArray["name"];
+console.log (associativeArray["name"]);
+
+Like as php
+$associative Array = { "name"=> "rahim","roll" => 12};
+=========================================================
+=========================================================
+
+index.php >>>>>>>>>>
+
+<!-- //Connected this page -->
+<?php
+     include 'config.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1>CRUD System</h1>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+    <!-- Bootstrap table  -->
+    <div class="container">
+      <h3>Students List :</h3>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Serial No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Roll</th>
+      <th scope="col">Class</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+         <?php
+                     //'SELECT * FROM students';
+            $query = 'SELECT * FROM students';
+             //mysqli_query($connection, $query);
+            //data dorar jonno variable again dhorte hobe
+            $students = mysqli_query($connection, $query);
+
+            //check for test
+            //echo $students; 
+
+            if($students){
+              //while (mysqli_fetch_assoc($students))
+              //variable
+              while ($row = mysqli_fetch_assoc($students)){
+              // $row['id']; 
+              // $row['name']; 
+              // $row['roll']; 
+              // $row['class']; 
+              // $row['phone']; 
+              // $row['address']; 
+              // $row['email']; 
+          
+              //browser a dekte chaile echo korte hobe
+              // echo $row['id'];
+              // echo $row['name'];
+              // echo $row['roll'];
+              // echo $row['class'];
+              // echo $row['phone'];
+              // echo $row['address'];
+              // echo $row['email'];
+
+                        //  OR use echo=print
+                        // print $row['id'];
+
+              //all data showning this system "do concatenation"
+              echo $row['id'].$row['name'].$row['roll'].$row['class'].$row['phone'].$row['address'].$row['email'];
+              
+              $id   = $row['id']; 
+              $name = $row['name']; 
+              $roll = $row['roll']; 
+              $class = $row['class']; 
+              $phone = $row['phone']; 
+              $address = $row['address']; 
+              $email =$row['email']; 
+              //****table row k <tr> </tr>  loop ar vitore nia aste hobe loop working ar jonno.
+              //html ar code <tr> </tr> php ar vitore ana hoyese tai <tr> </tr>  ar samne echo use korte hobe.
+              //html php ar vitore string hisebe use hoi tai quotation hobe like as
+                //echo '<tr> </tr>' hobe.
+                
+              // <tr>
+              //     <th scope="row">1</th>
+              //     <td>David</td>
+              //     <td>1</td>
+              //     <td>10</td>
+              //     <td>01710123456</td>
+              //     <td>New York, USA</td>
+              //     <td>daviddata@gmail.com</td>
+              //     <td>
+              //     <a href="#" class="btn btn-primary"> Edit</a>
+              //     <a href="#" class="btn btn-danger"> Delete</a>
+              //     </td>
+              //     </tr>
+             
+              //php ar code html echo <tr> </tr> a use korte chaile concatenition korte hobe
+              //(html) string ar sathe (php)variable concatenition korte hobe 
+            
+              // echo  
+            //   '<tr>
+            //        <th scope="row">1</th>
+            //        <td>David</td>
+            //        <td>1</td>
+            //        <td>10</td>
+            //        <td>01710123456</td>
+            //        <td>New York, USA</td>
+            //        <td>daviddata@gmail.com</td>
+            //       <td>
+            //           <a href="#" class="btn btn-primary"> Edit</a>
+            //           <a href="#" class="btn btn-danger"> Delete</a>
+            //       </td>
+            //   </tr>';
+
+            echo  
+              '<tr>
+                   <th scope="row">'.$id.'</th>
+                   <td>'.$name.'</td>
+                   <td>'.$class.'</td>
+                   <td>'.$roll.'</td>
+                   <td>'.$phone.'</td>
+                   <td>'.$address.'</td>
+                   <td>'.$email.'</td>
+                  <td>
+                      <a href="#" class="btn btn-primary"> Edit</a>
+                      <a href="#" class="btn btn-danger"> Delete</a>
+                  </td>
+              </tr>';
+            }
+          };
+         ?>
+    <!-- <tr>
+      <th scope="row">1</th>
+      <td>David</td>
+      <td>1</td>
+      <td>10</td>
+      <td>01710123456</td>
+      <td>New York, USA</td>
+      <td>daviddata@gmail.com</td>
+      <td>
+        <a href="#" class="btn btn-primary"> Edit</a>
+        <a href="#" class="btn btn-danger"> Delete</a>
+      </td>
+    </tr> -->
+
+    <!-- <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+  </tbody>
+</table>
+    </div>
+      
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
+=======================
+config.php>>>>>>>>>>>>>>>>>>>>>
+
+<?php
+// mysqli('hostname', 'user_name','password', 'database_name'); 
+// $connection = new mysqli('hostname', 'user_name','password', 'database_name'); 
+
+$connection = new mysqli('localhost', 'root', '', 'school_management_system_1');
+
+//now check the database connection >>> 
+//For checking ... No need
+// #Connecttion test
+if($connection == true){
+    echo "Database Connected with project Successfully Connected Done !!!";
+}
+else{
+    echo "Connection Failed";
+}
+?>
+=========================
+create.php>>>>>>>>>>>>>>>>>>>>>>>>>>
+<!-- For Data Insert create >>> create.php-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>

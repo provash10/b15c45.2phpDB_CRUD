@@ -1,0 +1,96 @@
+
+Working Part
+1. Take table, navbar from bootstrap >>> ok
+2. Database theke data Project a nia aste hobe 
+3. a. Configure Database kore DB k project ar every page a link up korte hobe.
+   b. config database k akti file(config.php) hisebe create kore seti k every project ar page
+    ar sathe linkup korai better. ta na hole bar bar same code likte hobe.
+
+4. (config.php) file create . check connection ok 
+
+5. Create Final Website (Table) Design for import data ....
+6. table body html blog a php te query likte hobe.
+        <?php
+            $query ='SELECT * FROM students_2';
+            mysqli_query('$Connection'; '$query'); 
+         ?>
+7. create.php
+             >>> Need a Form for insert students data.
+
+
+
+Q1.line format selection
+Q2.
+========================
+*****Bootstrap CDN Link (css &js) setup all pages.
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+--------------------------------------------------
+<?php
+     include 'config.php';
+?>
+
+
+=======================Configure Database (config.php) file=====
+
+mysqli('')
+1st parameter >>> 'hostname' >>> local server name
+2nd parameter >>> 'user_name' >>>
+3rd parameter >>> 'password' >>>
+4th parameter  >>> 'database_name' >>>
+
+mysqli('hostname', 'user_name','password', 'database_name');
+--------------------------------------------------------------------
+===================================
+create.php
+>>> Need a Form for insert students data. and Do Form Design.
+>>> Use form attributes <form action="" method="">
+>>> Now Work in Backend .......
+>>> connect DB in create.php
+
+=============HTTP Method==============
+1. GET Method >>> kono database theke data tule nia ase  takon GET Method kaj kore.
+2. POST Method  >>> database a kono data insert kora hoi takon POST Method kaj kore.
+                >>> Data Update o kore
+3. PUT Method  >>> Just Data Update
+4. DELETE Method   >>> Remove
+
+
+
+***** Jokon Data INSERT Dibo tokoni Insert hobe ajonno ****if use korte hobe
+<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+*****button e name="submit" use kora hoyese
+>>>> For Data Insert
+INSERT INTO 'students_2' (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', 'abx345@gmail.com');
+Variable Hole Quotation dite hobe
+$query = "INSERT INTO 'students_2' (name, roll, class, phone, address, email) VALUES ('Mr. X', 2, 8, '01710334455', 'Uttara,Dhaka', 'abx345@gmail.com')";
+
+>>>>
+
+Warning: Undefined array key "address" in C:\xampp\htdocs\B15\Class43.1_44.1_45.1 DB_CRUD Practice\create.php on line 13
+
+Fatal error: Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''students_2' (name, roll, class, phone, address, email) VALUES ('', '', '', '...' at line 1 in C:\xampp\htdocs\B15\Class43.1_44.1_45.1 DB_CRUD Practice\create.php:18 Stack trace: #0 C:\xampp\htdocs\B15\Class43.1_44.1_45.1 DB_CRUD Practice\create.php(18): mysqli_query(Object(mysqli), 'INSERT INTO 'st...') #1 {main} thrown in C:\xampp\htdocs\B15\Class43.1_44.1_45.1 DB_CRUD Practice\create.php on line 18
+
+==========================================================
+////////////////////////////////
+Delete Data Query 
+>>> DELETE FROM table name
+>>> DELETE FROM 'students_2' WHERE id = 1;
+>>>> $query ="DELETE FROM 'students_2' WHERE id = 1";
+>>> index.php te delete.php link up 
+<a href="delete.php" class="btn btn-danger"> Delete</a>
+============================================================
+UPDATE DATA Query 2 ways Formula
+EDIT-UPDATE DATA 
+SELECT FROM students_2; (for all students data)
+SELECT FROM students_2 WHERE id =9; (for only one student data)
+SELECT FROM students_2 WHERE id =$id;
+
+>>> 
+Create a Update page >>>edit.php
+Linkup index.php>> <a href="edit.php" class="btn btn-primary"> Edit</a>
+--------------------------
+
+UPDATE Query
+UPDATE students_2 SET name = "X", roll= 1, class= 7, phone ="67t63846', address="A,Dhaka", email = "sdgfgf@gmail.com" WHERE id= 9 ;
+
